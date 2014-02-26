@@ -1,3 +1,5 @@
+/* global _ */
+/* exported makeQueue */
 var makeQueue = function(){
   var instance = {};
 
@@ -8,9 +10,9 @@ var makeQueue = function(){
 
   instance.enqueue = function(value){
     if(size > 0){
-      _.each(storage, function(item){
-        storage[item + 1] = storage[item]
-      })
+      _.each(storage, function(item, key){
+        storage[Number(key)+1] = item;
+      });
     }
     storage[0] = value;
     size++;
