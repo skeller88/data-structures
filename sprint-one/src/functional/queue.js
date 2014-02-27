@@ -1,4 +1,3 @@
-//comment here
 /* global _ */
 /* exported makeQueue */
 var makeQueue = function(){
