@@ -1,6 +1,17 @@
 /* global _ */
 /* exported makeQueue, queueMethods */
-var queueMethods = {
+
+
+var makeQueue = function(){
+  var instance = {
+    instanceSize: 0,
+    storage: {}
+  };
+  _.extend(instance, makeQueue.queueMethods);
+  return instance;
+};
+
+makeQueue.queueMethods = {
   enqueue: function(value){
     if(this.instanceSize > 0){
       _.each(this.storage, function(item, key){
@@ -25,14 +36,3 @@ var queueMethods = {
     return this.instanceSize;
   }
 };
-
-var makeQueue = function(){
-  var instance = {
-    instanceSize: 0,
-    storage: {}
-  };
-  _.extend(instance, queueMethods);
-  return instance;
-};
-
-
