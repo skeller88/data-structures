@@ -9,7 +9,7 @@
         padding: 0;
       }
       iframe {
-        width: 100%; /* 24% */
+        width: 24%; /* 24% */
         border-width: 0;
       }
     </style>
@@ -17,10 +17,10 @@
     <script>
       $(function(){
         $.each([
-          // 'functional',
-          // 'functional-shared',
+          'functional',
+          'functional-shared',
           'prototypal',
-          // 'pseudoclassical'
+          'pseudoclassical'
           ], function(i, variant){
           $('<iframe src="' + window.location.toString().replace('.html', 'Section.html?') + variant + '" />').appendTo(document.body);
         });
