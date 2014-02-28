@@ -2,6 +2,13 @@
 /* exported makeQueue, queueMethods */
 
 
+var makeQueue = function(){
+  var instance = Object.create(queueMethods);
+  instance.instanceSize = 0;
+  instance.storage = {};
+  return instance;
+};
+
 var queueMethods = {
   enqueue: function(value){
     if(this.instanceSize > 0){
@@ -25,11 +32,4 @@ var queueMethods = {
   size: function(){
     return this.instanceSize;
   }
-};
-
-var makeQueue = function(){
-  var instance = Object.create(queueMethods);
-  instance.instanceSize = 0;
-  instance.storage = {};
-  return instance;
 };
