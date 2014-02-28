@@ -5,6 +5,7 @@ var Stack = function() {
   this.storage = {};
 };
 
+//you don't need to specify the constructor property of Stack.prototype
 Stack.prototype.push = function(value){
     this.storage[this.instanceSize++] = value;
   };
