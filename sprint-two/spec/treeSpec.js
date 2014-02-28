@@ -58,8 +58,8 @@ it("EC - should disconnect a child from a parent", function(){
     tree.addChild(5);
     tree.children[0].addChild(7);
     tree.children[0].children[0].removeFromParent();
-    assert.isFalse(tree.contains(5));
-    assert.isTrue(tree.contains(7));
+    assert.isTrue(tree.contains(5));
+    assert.isFalse(tree.contains(7));
   });
 
 });
