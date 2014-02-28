@@ -30,9 +30,24 @@ define([
       }
     });
 
-    describe('stack shared behavior', function(){
+    describe('stack shared behavior', function() {
 
       verifyClass(instantiator).followsPattern(variant, {}, prototypeOfInstances);
+
+      it('should create a bunch of stacks', function() {
+        for (var i = 0; i < 100000; i++) {
+          if(variant === 'pseudoclassical'){
+            console.log('variant is pseudo');
+            stack = new instantiator();
+            stack.push(1);
+            console.log('new stack');
+          } else {
+            console.log('not pseudo');
+            stack = instantiator();
+            stack.push(1);
+          }
+        }
+      });
 
       it('reports a size of zero for a new stack', function() {
         expect(stack.size()).to.equal(0);

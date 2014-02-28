@@ -24,7 +24,6 @@ var makeLinkedList = function(){
     var node = node || list.head;
 
     if(node.value === target){
-      console.log(node + ' has value ' + target);
       return true;
     } else if (!node.next) {
       return false;

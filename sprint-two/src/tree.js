@@ -1,5 +1,5 @@
 var makeTree = function(value){
-  var newTree = {};
+  var newTree = Object.create(treeMethods);
   newTree.value = value;
   newTree.children = undefined;
   return newTree;
@@ -9,8 +9,23 @@ var makeTree = function(value){
 var treeMethods = {};
 
 treeMethods.addChild = function(value){
+  //this.children = this.children === undefined ? [] : this.children;
+  if (!this.children) {
+    this.children = [];
+  }
+  this.children.push(makeTree(value));
 };
 
 treeMethods.contains = function(target){
+  if (this.value === target) {
+    return true;
+  }
+  if (this.children) {
+    for (var i = 0; i < this.children.length; i++) {
+      return this.children[i].contains(target);
+    }
+  } else {
+    return false;
+  }
 };
 
