@@ -32,7 +32,7 @@ describe("linkedList", function() {
     expect(linkedList.head.value).to.equal(4);
     console.log(linkedList)
     linkedList.removeHead();
-        console.log(linkedList) 
+        console.log(linkedList)
     expect(linkedList.head.value).to.equal(5);
   });
 
@@ -49,6 +49,34 @@ describe("linkedList", function() {
     linkedList.addToTail(5);
     linkedList.removeHead();
     assert.isFalse(linkedList.contains(4));
+  });
+
+  it("DLL - should have nodes with a 'previous' property", function(){
+    linkedList.addToTail(4);
+    linkedList.addToTail(5);
+    expect(linkedList.tail.previous.value).to.equal(4);
+  });
+
+  it("DLL - should update the head after removing head", function(){
+    linkedList.addToTail(4);
+    linkedList.addToTail(5);
+    linkedList.removeHead();
+    expect(linkedList.tail.previous).to.equal(null);
+  });
+
+  it("DLL - should update the head to new head", function(){
+    linkedList.addToHead(4);
+    linkedList.addToHead(5);
+    expect(linkedList.head.value).to.equal(5);
+    expect(linkedList.head.next.value).to.equal(4);
+  });
+
+  it("DLL - should update the tail after removing tail", function(){
+    linkedList.addToTail(4);
+    linkedList.addToTail(5);
+    linkedList.removeTail();
+    expect(linkedList.tail.value).to.equal(4);
+    expect(linkedList.tail.previous).to.equal(null);
   });
 
   // add more tests here to test the functionality of linkedList

@@ -44,4 +44,22 @@ describe("tree", function() {
     assert.isTrue(tree.contains(8));
   });
 
+it("EC - should return a node's parent or null if no parent", function(){
+    tree.addChild(5);
+    tree.addChild(6);
+    tree.children[0].addChild(7);
+    tree.children[1].addChild(8);
+    expect(tree.children[1].children[0].parent).to.equal(tree.children[1]);
+    expect(tree.children[0].parent).to.equal(tree);
+    expect(tree.parent).to.equal(null);
+  });
+
+it("EC - should disconnect a child from a parent", function(){
+    tree.addChild(5);
+    tree.children[0].addChild(7);
+    tree.children[0].children[0].removeFromParent();
+    assert.isFalse(tree.contains(5));
+    assert.isTrue(tree.contains(7));
+  });
+
 });
