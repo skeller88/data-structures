@@ -5,7 +5,6 @@ var makeTree = function(value){
   return newTree;
 };
 
-
 var treeMethods = {};
 
 treeMethods.addChild = function(value){
@@ -22,10 +21,13 @@ treeMethods.contains = function(target){
   }
   if (this.children) {
     for (var i = 0; i < this.children.length; i++) {
-      return this.children[i].contains(target);
+      if (this.children[i].contains(target)) {
+        return true;
+      } else if (i === this.children.length - 1) {
+        return false;
+      }
     }
-  } else {
-    return false;
   }
+  return false;
 };
 
