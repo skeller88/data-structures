@@ -68,11 +68,10 @@ it("EC - should have traverse function", function(){
     tree.children[0].addChild(1);
     tree.children[0].addChild(1);
     tree.children[1].addChild(1);
-    var x = function(){
-      this.value = 2;
-    };
-    tree.traverse(x);
-    expect(tree.children[1].children[1].value).to.equal(2);
+    tree.traverse(function() {
+      this.value += 1;
+    });
+    expect(tree.children[1].children[0].value).to.equal(2);
   });
 
 });
