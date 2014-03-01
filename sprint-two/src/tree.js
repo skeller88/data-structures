@@ -40,3 +40,14 @@ treeMethods.contains = function(target){
   return false;
 };
 
+treeMethods.traverse = function(callback){
+  if (this.value) {
+    this.call(this, callback);
+  }
+  if(this.children){
+    for(var i = 0; i < this.children.length; i++){
+      this.children[i].traverse(callback);
+    }
+  }
+};
+

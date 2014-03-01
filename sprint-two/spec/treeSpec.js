@@ -62,4 +62,17 @@ it("EC - should disconnect a child from a parent", function(){
     assert.isFalse(tree.contains(7));
   });
 
+it("EC - should have traverse function", function(){
+    tree.addChild(1);
+    tree.addChild(1);
+    tree.children[0].addChild(1);
+    tree.children[0].addChild(1);
+    tree.children[1].addChild(1);
+    var x = function(){
+      this.value = 2;
+    };
+    tree.traverse(x);
+    expect(tree.children[1].children[1].value).to.equal(2);
+  });
+
 });

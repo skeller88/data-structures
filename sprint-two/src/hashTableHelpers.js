@@ -47,5 +47,6 @@ var getIndexBelowMaxForKey = function(str, max){
     hash = hash & hash; // Convert to 32bit integer
     hash = Math.abs(hash);
   }
+  console.log(hash % max);
   return hash % max;
 };
