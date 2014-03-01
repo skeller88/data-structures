@@ -49,5 +49,9 @@ var bstMethods = {
     if (this.right) {
       this.right.depthFirstLog(callback);
     }
+  },
+
+  breadthFirstLog: function(){
+
   }
 };

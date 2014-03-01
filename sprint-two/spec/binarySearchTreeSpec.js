@@ -38,4 +38,12 @@ describe("binarySearchTree", function() {
     binarySearchTree.depthFirstLog(func);
     assert.notStrictEqual(array, [5,2,3]);
   });
+
+  it("should log all nodes in the tree using a breadth-first approach", function(){
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(8);
+    binarySearchTree.insert(1);
+    expect(binarySearchTree.breadthFirstLog()).to.equal([5,2,1,3,8]);
+  });
 });
