@@ -51,7 +51,40 @@ var bstMethods = {
     }
   },
 
-  breadthFirstLog: function(){
+  breadthFirstLog: function(results){
+    var results = results || [this.value];
+    var queue = [];
+    queue.unshift(this.value);
+    results = results.concat(queue.pop(this.value));
+    if(this.left){
+      queue.unshift(this.left.breadthFirstLog(results));
+    }
+    if(this.right){
+      queue.unshift(this.right.breadthFirstLog(results));
+    }
 
+    // enqueue root node
+    // dequeue node
+    // enqueue children of dequeued node
+    // place dequeued children into the results
+    // repeat
+
+    results.concat(this.value);
+
+    if (this.right) {
+      results = results.concat(this.right.value);
+    }
+
+    if (this.right) {
+      results = results.concat(this.right.breadthFirstLog());
+    }
+    return results;
   }
 };
+
+
+// [this.value]
+// run function on this array to add .value to new array
+// add this.left, add this.right
+// iterate over new things
+//
