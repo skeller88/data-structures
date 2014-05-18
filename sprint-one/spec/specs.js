@@ -35,7 +35,7 @@ define([
       verifyClass(instantiator).followsPattern(variant, {}, prototypeOfInstances);
 
       it('should create a bunch of stacks', function() {
-        for (var i = 0; i < 100000; i++) {
+        for (var i = 0; i < 100; i++) {
           if(variant === 'pseudoclassical'){
             console.log('variant is pseudo');
             stack = new instantiator();

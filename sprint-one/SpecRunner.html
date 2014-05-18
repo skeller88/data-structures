@@ -9,7 +9,7 @@
         padding: 0;
       }
       iframe {
-        width: 24%; /* 24% to see all 4 spec columns at once */
+        width: 100%; /* 24% to see all 4 spec columns at once */
         border-width: 0;
       }
     </style>
@@ -17,9 +17,9 @@
     <script>
       $(function(){
         $.each([
-          'functional',
-          'functional-shared',
-          'prototypal',
+          // 'functional'
+          // 'functional-shared'
+          // 'prototypal'
           'pseudoclassical'
           ], function(i, variant){
           $('<iframe src="' + window.location.toString().replace('.html', 'Section.html?') + variant + '" />').appendTo(document.body);

@@ -71,6 +71,13 @@ Graph.prototype.removeEdge = function(fromNode, toNode){
     }
 };
 
+Graph.prototype.forEach = function(callback){
+    for(var node in this.nodes){
+        callback(node);
+    }
+};
+
 var g = new Graph();
 g.addNode(1);
-// g.addNode(2)
+g.addNode(2)
+g.forEach(function(val){ console.log(val)});
